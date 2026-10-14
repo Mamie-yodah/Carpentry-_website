@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#173d35">
+    <meta name="description" content="Webster Kanzamba is a Class 1 Carpenter and Joiner in Harare, Zimbabwe, offering kitchen fitting and islands, wardrobes, thatching, custom joinery and contracting.">
+    <title>Webster Kanzamba | Carpenter, Joiner & Contractor</title>
+    <style>
+        :root {
+            --forest: #173d35;
+            --forest-dark: #102d27;
+            --lime: #d5ed75;
+            --paper: #f7f6f0;
+            --white: #fff;
+            --ink: #172823;
+            --muted: #62716b;
+            --line: #dce2da;
+            --orange: #df7746;
+            --serif: Georgia, "Times New Roman", serif;
+            --sans: "Trebuchet MS", "Segoe UI", sans-serif;
+        }
+
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); line-height: 1.6; }
+        a { color: inherit; }
+        button, input, select, textarea { font: inherit; }
+        .wrap { width: min(1120px, calc(100% - 48px)); margin-inline: auto; }
+        .topbar { display: flex; align-items: center; justify-content: space-between; min-height: 76px; border-bottom: 1px solid rgba(255,255,255,.17); color: var(--white); }
+        .topbar-wrap { position: absolute; z-index: 2; inset: 0 0 auto; }
+        .brand { display: flex; align-items: center; gap: 11px; text-decoration: none; }
+        .brand-plaque { display: grid; place-items: center; width: 36px; height: 38px; border: 1px solid rgba(213,237,117,.75); background: repeating-linear-gradient(8deg, #754a2e 0 4px, #875738 4px 7px, #67412b 7px 9px); box-shadow: inset 0 0 0 3px rgba(16,45,39,.3); color: #f8e8be; font-family: var(--serif); font-size: 1.35rem; font-style: italic; }
+        .brand-wording { display: grid; gap: 3px; }
+        .brand-name { color: var(--white); font-family: var(--serif); font-size: 1.2rem; font-weight: 700; line-height: 1; }
+        .brand-name span { color: var(--lime); }
+        .brand-craft { color: #c6d4ca; font-size: .57rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+        nav { display: flex; align-items: center; gap: 28px; }
+        nav a { text-decoration: none; color: #e1e9e3; font-size: .92rem; }
+        nav a:hover, nav a:focus-visible { color: var(--lime); }
+        nav .nav-contact { background: var(--lime); color: var(--forest-dark); padding: 10px 16px; border-radius: 3px; font-weight: 800; }
+        .hero { min-height: 650px; display: grid; align-items: center; position: relative; overflow: hidden; color: var(--white); background-color: var(--forest); background-image: linear-gradient(90deg, rgba(16,45,39,.97) 0%, rgba(16,45,39,.88) 51%, rgba(16,45,39,.35) 100%), url('images/IMG-20261014-WA0014.jpg'); background-size: cover; background-position: center; }
+        .hero::after { content: ""; position: absolute; width: 400px; height: 400px; border: 1px solid rgba(213,237,117,.22); border-radius: 50%; right: -110px; bottom: -240px; box-shadow: 0 0 0 42px rgba(213,237,117,.035), 0 0 0 84px rgba(213,237,117,.025); }
+        .hero-content { padding: 138px 0 92px; max-width: 760px; position: relative; z-index: 1; animation: arrive .7s ease-out both; }
+        .eyebrow { text-transform: uppercase; letter-spacing: .14em; font-weight: 800; font-size: .76rem; color: var(--lime); }
+        h1, h2, h3, p { margin-top: 0; }
+        h1 { max-width: 700px; margin: 16px 0; font-family: var(--serif); font-size: clamp(3.2rem, 7vw, 5.7rem); line-height: .99; font-weight: 500; }
+        .hero-copy { max-width: 590px; margin-bottom: 28px; color: #d3dfd7; font-size: 1.1rem; }
+        .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+        .button { display: inline-flex; justify-content: center; align-items: center; min-height: 48px; padding: 12px 19px; border: 1px solid transparent; border-radius: 3px; background: var(--lime); color: var(--forest-dark); text-decoration: none; font-weight: 800; cursor: pointer; transition: transform .18s ease, background .18s ease; }
+        .button:hover { transform: translateY(-2px); background: #e2f69b; }
+        .button-outline { border-color: rgba(255,255,255,.5); background: transparent; color: var(--white); }
+        .button-outline:hover { background: rgba(255,255,255,.1); }
+        .credentials { display: flex; flex-wrap: wrap; gap: 10px 26px; margin-top: 35px; color: #e3e9e3; font-size: .9rem; }
+        .credentials span::before { content: ""; display: inline-block; width: 7px; height: 7px; margin: 0 9px 1px 0; border-radius: 50%; background: var(--lime); }
+        .trust-strip { background: var(--lime); color: var(--forest-dark); }
+        .trust-items { display: grid; grid-template-columns: repeat(4, 1fr); padding: 22px 0; gap: 16px; }
+        .trust-items div { padding-left: 14px; border-left: 1px solid rgba(16,45,39,.25); font-size: .9rem; font-weight: 800; }
+        .trust-items span { display: block; font-size: .76rem; font-weight: 500; opacity: .76; }
+        section { padding: 86px 0; }
+        .section-heading { max-width: 650px; margin-bottom: 36px; }
+        .section-heading .eyebrow { color: #66812b; }
+        h2 { margin: 8px 0 12px; color: var(--forest-dark); font-family: var(--serif); font-size: clamp(2.1rem, 4vw, 3.3rem); line-height: 1.08; font-weight: 500; }
+        .section-heading p { margin-bottom: 0; color: var(--muted); }
+        .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+        .service { min-height: 205px; padding: 27px; background: var(--paper); }
+        .service-number { color: #81915f; font-size: .78rem; font-weight: 800; }
+        .service h3 { margin: 17px 0 9px; color: var(--forest); font-size: 1.17rem; }
+        .service p { margin-bottom: 0; color: var(--muted); font-size: .94rem; }
+        .portfolio { background: var(--paper); }
+        .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+        .project-card { min-width: 0; margin: 0; background: var(--white); border: 1px solid var(--line); }
+        .project-image-button { display: block; position: relative; width: 100%; padding: 0; overflow: hidden; border: 0; background: #e4e6df; text-align: left; cursor: zoom-in; }
+        .project-card img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; background: #e4e6df; }
+        .project-image-button img { transition: transform .25s ease; }
+        .project-image-button:hover img { transform: scale(1.035); }
+        .project-image-hint { position: absolute; right: 10px; bottom: 10px; padding: 6px 9px; background: rgba(16,45,39,.9); color: var(--white); font-size: .74rem; font-weight: 700; }
+        .project-card figcaption { padding: 15px 17px 17px; }
+        .project-card strong { display: block; color: var(--forest); font-size: .98rem; }
+        .project-card span { display: block; margin-top: 3px; color: var(--muted); font-size: .83rem; }
+        .portfolio-tools { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin: -10px 0 22px; }
+        .portfolio-filters { display: flex; flex-wrap: wrap; gap: 8px; }
+        .portfolio-filter { min-height: 40px; padding: 8px 13px; border: 1px solid #cbd4ca; border-radius: 2px; background: transparent; color: var(--forest); font-size: .85rem; font-weight: 800; cursor: pointer; }
+        .portfolio-filter[aria-pressed="true"], .portfolio-filter:hover { border-color: var(--forest); background: var(--forest); color: var(--white); }
+        .portfolio-count { margin: 0; color: var(--muted); font-size: .82rem; }
+        .portfolio-note { margin: 20px 0 0; color: var(--muted); font-size: .9rem; }
+        .lightbox { width: 100vw; max-width: none; height: 100dvh; max-height: none; margin: 0; padding: 24px; border: 0; background: transparent; color: var(--white); }
+        .lightbox[open] { display: grid; place-items: center; }
+        .lightbox::backdrop { background: rgba(7,18,15,.94); }
+        .lightbox figure { display: grid; justify-items: center; align-content: center; gap: 14px; width: 100%; height: 100%; margin: 0; }
+        .lightbox img { display: block; max-width: 100%; max-height: calc(100dvh - 110px); width: auto; height: auto; object-fit: contain; }
+        .lightbox figcaption { color: #e4ebe5; text-align: center; }
+        .lightbox-close { position: absolute; top: 18px; right: 20px; display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid rgba(255,255,255,.65); background: var(--forest); color: var(--white); font-size: 1.5rem; cursor: pointer; }
+        .lightbox-close:hover { background: #285a4d; }
+        .work { background: #eaece4; }
+        .work-layout { display: grid; grid-template-columns: .83fr 1.17fr; gap: 55px; align-items: start; }
+        .work-layout .section-heading { position: sticky; top: 26px; }
+        .work-note { padding-left: 19px; border-left: 3px solid var(--orange); color: var(--muted); }
+        .work-list { display: grid; gap: 0; }
+        .work-item { display: grid; grid-template-columns: 52px 1fr; gap: 17px; padding: 22px 0; border-top: 1px solid #cdd4ca; }
+        .work-item:last-child { border-bottom: 1px solid #cdd4ca; }
+        .work-mark { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--forest); color: var(--lime); font-weight: 800; }
+        .work-item h3 { margin: 0 0 5px; color: var(--forest); font-size: 1.05rem; }
+        .work-item p { margin: 0; color: var(--muted); font-size: .92rem; }
+        .contact { color: var(--white); background: var(--forest); }
+        .contact .section-heading .eyebrow { color: var(--lime); }
+        .contact h2 { color: var(--white); }
+        .contact .section-heading p { color: #ccdad1; }
+        .contact-grid { display: grid; grid-template-columns: .82fr 1.18fr; gap: 58px; align-items: start; }
+        .contact-methods { display: grid; gap: 12px; margin-top: 28px; }
+        .contact-method { display: flex; align-items: center; gap: 14px; padding: 16px; border: 1px solid rgba(255,255,255,.2); color: var(--white); text-decoration: none; transition: background .18s ease; }
+        .contact-method:hover { background: rgba(255,255,255,.08); }
+        .method-icon { display: grid; place-items: center; flex: 0 0 38px; height: 38px; border-radius: 50%; background: var(--lime); color: var(--forest-dark); font-weight: 900; }
+        .contact-method small { display: block; color: #b7c8be; }
+        .contact-method strong { overflow-wrap: anywhere; }
+        .form-panel { padding: 30px; background: var(--paper); color: var(--ink); }
+        .form-panel h3 { margin-bottom: 4px; color: var(--forest); font-family: var(--serif); font-size: 1.65rem; font-weight: 500; }
+        .form-intro { margin-bottom: 22px; color: var(--muted); font-size: .9rem; }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .field { display: grid; gap: 6px; }
+        .field-full { grid-column: 1 / -1; }
+        label { color: #31453b; font-size: .84rem; font-weight: 800; }
+        input, select, textarea { width: 100%; border: 1px solid #cbd4ca; border-radius: 2px; background: var(--white); color: var(--ink); padding: 11px 12px; }
+        input:focus, select:focus, textarea:focus { outline: 2px solid #98b847; outline-offset: 1px; }
+        textarea { min-height: 120px; resize: vertical; }
+        .form-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+        .send-email { background: var(--forest); color: var(--white); }
+        .send-email:hover { background: var(--forest-dark); }
+        .form-note { margin: 13px 0 0; color: var(--muted); font-size: .78rem; }
+        .status { min-height: 1.4em; margin: 12px 0 0; color: var(--forest); font-size: .88rem; font-weight: 700; }
+        footer { padding: 24px 0; background: var(--forest-dark); color: #c7d3cb; font-size: .85rem; }
+        .footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; }
+        .footer-inner a { color: var(--lime); text-decoration: none; }
+        :focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; }
+        @keyframes arrive { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+        @media (max-width: 760px) {
+            .wrap { width: min(100% - 36px, 600px); }
+            .topbar { min-height: 68px; }
+            .brand-name { font-size: 1.08rem; }
+            .brand-plaque { width: 32px; height: 34px; }
+            nav { gap: 14px; }
+            nav a { font-size: .82rem; }
+            nav a:not(.nav-contact) { display: none; }
+            .hero { min-height: 630px; background-position: 58% center; }
+            .hero-content { padding-top: 120px; }
+            .trust-items { grid-template-columns: 1fr 1fr; }
+            section { padding: 64px 0; }
+            .service-grid, .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+            .service { min-height: auto; }
+            .work-layout, .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+            .work-layout .section-heading { position: static; }
+        }
+        @media (max-width: 480px) {
+            .brand { gap: 8px; }
+            .brand-craft { font-size: .5rem; }
+            nav .nav-contact { padding: 9px 11px; }
+            .hero { min-height: 670px; }
+            h1 { font-size: 3.15rem; }
+            .hero-copy { font-size: 1rem; }
+            .credentials { display: grid; gap: 8px; }
+            .service-grid, .portfolio-grid { grid-template-columns: 1fr; }
+            .form-panel { padding: 22px 18px; }
+            .form-grid { grid-template-columns: 1fr; }
+            .field-full { grid-column: auto; }
+            .form-actions .button { width: 100%; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
+        }
+    </style>
+</head>
+<body>
+    <div class="topbar-wrap">
+        <div class="wrap topbar">
+            <a class="brand" href="#top" aria-label="Webster Kanzamba, home">
+                <span class="brand-plaque" aria-hidden="true">W</span>
+                <span class="brand-wording">
+                    <span class="brand-name">Webster <span>Kanzamba</span></span>
+                    <span class="brand-craft">Carpentry · Joinery · Thatching</span>
+                </span>
+            </a>
+            <nav aria-label="Main navigation">
+                <a href="#expertise">Expertise</a>
+                <a href="#experience">Experience</a>
+                <a class="nav-contact" href="#contact">Hire Webster</a>
+            </nav>
+        </div>
+    </div>
+
+    <header class="hero" id="top">
+        <div class="wrap hero-content">
+            <div class="eyebrow">Class 1 Carpenter &amp; Joiner · Harare, Zimbabwe</div>
+            <h1>Webster<br><span style="color: var(--lime); font-style: italic;">Kanzamba.</span></h1>
+            <p class="hero-copy">Class 1 Carpenter, Joiner &amp; Refurbishment Contractor. Craftsmanship that gets the job done, from fitted kitchens and wardrobes to thatching and bespoke woodwork.</p>
+            <div class="hero-actions">
+                <a class="button" href="#contact">Discuss a role or project</a>
+                <a class="button button-outline" href="tel:+263774394883">Call +263 774 394 883</a>
+            </div>
+            <div class="credentials">
+                <span>Class 1 Journeyman</span>
+                <span>Skilled Worker No. 1201100125-M</span>
+                <span>Harare &amp; surrounding regions</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="trust-strip" aria-label="Professional highlights">
+        <div class="wrap trust-items">
+            <div>Kitchen fitting &amp; islands<span>Cabinetry and island units</span></div>
+            <div>Wardrobes &amp; storage<span>Fitted and custom-built</span></div>
+            <div>Traditional thatching<span>Roof work and finishing</span></div>
+            <div>Bespoke joinery<span>Furniture and fine woodwork</span></div>
+        </div>
+    </div>
+
+    <main>
+        <section id="expertise">
+            <div class="wrap">
+                <div class="section-heading">
+                    <div class="eyebrow">What I bring to your team</div>
+                    <h2>Practical skills. Reliable delivery.</h2>
+                    <p>From accurate preparation to the final site handover, I take pride in work that is well planned, carefully built and ready for use.</p>
+                </div>
+                <div class="service-grid">
+                    <article class="service">
+                        <div class="service-number">01 / KITCHENS</div>
+                        <h3>Kitchen fitting &amp; islands</h3>
+                        <p>Made-to-measure kitchen cabinets, worktops and island units, fitted with care and built around the room and the client’s needs.</p>
+                    </article>
+                    <article class="service">
+                        <div class="service-number">02 / STORAGE</div>
+                        <h3>Wardrobes &amp; storage</h3>
+                        <p>Fitted wardrobes, cupboards and shelving designed to make useful, well-finished storage for bedrooms and living spaces.</p>
+                    </article>
+                    <article class="service">
+                        <div class="service-number">03 / ROOFING</div>
+                        <h3>Traditional thatching</h3>
+                        <p>Thatching and roof finishing, bringing skilled handwork and attention to detail to traditional and outdoor structures.</p>
+                    </article>
+                    <article class="service">
+                        <div class="service-number">04 / CRAFT</div>
+                        <h3>Bespoke joinery &amp; furniture</h3>
+                        <p>Custom shelving, tables and woodwork, prepared from plans, measurements or client sketches.</p>
+                    </article>
+                    <article class="service">
+                        <div class="service-number">05 / SITE DELIVERY</div>
+                        <h3>Refurbishment &amp; fit-out</h3>
+                        <p>Commercial and residential refurbishment, partitions, ceilings, timber frameworks and coordinated site work.</p>
+                    </article>
+                    <article class="service">
+                        <div class="service-number">06 / LEADERSHIP</div>
+                        <h3>Supervision &amp; planning</h3>
+                        <p>Team coordination, time and material estimates, quality checks, site safety awareness and client sign-off.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="portfolio" id="portfolio">
+            <div class="wrap">
+                <div class="section-heading">
+                    <div class="eyebrow">Selected work</div>
+                    <h2>Made with skill. Built to last.</h2>
+                    <p>These are a few examples of Webster’s completed work, not the full range of what he can do. His skills also include island kitchens, fitted wardrobes, thatching and broader site work.</p>
+                </div>
+                <div class="portfolio-tools">
+                    <div class="portfolio-filters" role="group" aria-label="Filter project photos">
+                        <button class="portfolio-filter" type="button" data-filter="all" aria-pressed="true">All work</button>
+                        <button class="portfolio-filter" type="button" data-filter="kitchens" aria-pressed="false">Kitchens</button>
+                        <button class="portfolio-filter" type="button" data-filter="joinery" aria-pressed="false">Joinery &amp; furniture</button>
+                        <button class="portfolio-filter" type="button" data-filter="interiors" aria-pressed="false">Interior work</button>
+                    </div>
+                    <p class="portfolio-count" id="portfolio-count" role="status" aria-live="polite">Showing all 10 examples</p>
+                </div>
+                <div class="portfolio-grid">
+                    <figure class="project-card" data-category="kitchens">
+                        <button class="project-image-button" type="button" aria-label="View larger: fitted kitchen cabinetry" aria-haspopup="dialog">
+                            <img src="images/IMG-20261014-WA0014.jpg" alt="Warm wood fitted kitchen with cabinet doors, counter and sink" loading="lazy">
+                            <span class="project-image-hint" aria-hidden="true">View larger +</span>
+                        </button>
+                        <figcaption><strong>Fitted kitchen cabinetry</strong><span>Kitchen installation · Harare</span></figcaption>
+                    </figure>
+                    <figure class="project-card" data-category="kitchens">
+                        <button class="project-image-button" type="button" aria-label="View larger: kitchen cabinets and storage" aria-haspopup="dialog">
+                            <img src="images/IMG-20261014-WA0024.jpg" alt="Kitchen cabinetry installation with tall pantry storage and base units" loading="lazy">
+                            <span class="project-image-hint" aria-hidden="true">View larger +</span>
+                        </button>
+                        <figcaption><strong>Kitchen cabinets &amp; storage</strong><span>Made-to-measure fitting</span></figcaption>
+                    </figure>
+                    <figure class="project-card" data-category="joinery">
+                        <button class="project-image-button" type="button" aria-label="View larger: fitted shelving" aria-haspopup="dialog">
+                            <img src="images/IMG-20261014-WA0016.jpg" alt="Carpenter working on fitted display shelving" loading="lazy">
+                            <span class="project-image-hint" aria-hidden="true">View larger +</span>
+                        </button>
+                        <figcaption><strong>Fitted shelving</strong><span>On-site finishing and installation</span></figcaption>
+                    </figure>
+                    <figure class="project-card" data-category="joinery">
+                        <button class="project-image-button" type="button" aria-label="View larger: custom furniture and bookcase" aria-haspopup="dialog">
+                            <img src="images/IMG-20261014-WA0017.jpg" alt="Handcrafted timber chair, cabinet and bookcase" loading="lazy">
+                            <span class="project-image-hint" aria-hidden="true">View larger +</span>
+                        </button>
+                        <figcaption><strong>Custom furniture &amp; bookcase</strong><span>Bespoke timber joinery</span></figcaption>
+                    </figure>
+                    <figure class="project-card" data-category="joinery">
+                        <button class="project-image-button" type="button" aria-label="View larger: solid timber dining table" aria-haspopup="dialog">
+                            <img src="images/IMG-20261014-WA0019.jpg" alt="Polished solid timber dining table with shaped base" loading="lazy">
+                            <span class="project-image-hint" aria-hidden="true">View larger +</span>
+                        </button>
+                        <figcaption><strong>Solid timber dining table</strong><span>Hand-built furniture</span></figcaption>
+                    </figure>
+                    <figure class="project-card" data-category="joinery">
+                        <button class="project-image-button" type="button" aria-label="View larger: workshop craftsmanship" aria-haspopup="dialog">
+                            <img src="images/IMG-20261014-WA0020.jpg" alt="Carpenter preparing timber with workshop machinery" loading="lazy">
+                            <span class="project-image-hint" aria-hidden="true">View larger +</span>
+                        </button>
+                        <figcaption><strong>Workshop craftsmanship</strong><span>Accurate timber preparation</span></figcaption>
+                    </figure>
+                    <figure class="project-card" data-category="joinery">
+                        <button class="project-image-button" type="button" aria-label="View larger: custom timber occasional table" aria-haspopup="dialog">
+                            <img src="images/IMG-20261014-WA0015.jpg" alt="Polished oval timber occasional table with sculpted wooden base" loading="lazy">
+                            <span class="project-image-hint" aria-hidden="true">View larger +</span>
+                        </button>
+                        <figcaption><strong>Timber occasional table</strong><span>Custom furniture and shaped timberwork</span></figcaption>
+                    </figure>
+                    <figure class="project-card" data-category="interiors">
+                        <button class="project-image-button" type="button" aria-label="View larger: decorative wall panelling and nursery interior" aria-haspopup="dialog">
+                            <img src="images/IMG-20261014-WA0021.jpg" alt="Nursery interior with decorative green wall panelling and timber crib" loading="lazy">
+                            <span class="project-image-hint" aria-hidden="true">View larger +</span>
+                        </button>
+                        <figcaption><strong>Decorative wall panelling</strong><span>Interior detailing and timber finish</span></figcaption>
+                    </figure>
+                    <figure class="project-card" data-category="interiors">
+                        <button class="project-image-button" type="button" aria-label="View larger: living room ceiling and media wall design" aria-haspopup="dialog">
+                            <img src="images/IMG-20261014-WA0022.jpg" alt="Living room interior showing a detailed ceiling, media wall and fitted display areas" loading="lazy">
+                            <span class="project-image-hint" aria-hidden="true">View larger +</span>
+                        </button>
+                        <figcaption><strong>Ceiling &amp; living-room fit-out</strong><span>Interior finishing and media-wall detail</span></figcaption>
+                    </figure>
+                    <figure class="project-card" data-category="joinery">
+                        <button class="project-image-button" type="button" aria-label="View larger: timber dining furniture and interior" aria-haspopup="dialog">
+                            <img src="images/IMG-20261014-WA0023.jpg" alt="Timber dining table and chairs with matching cabinetry in a finished dining room" loading="lazy">
+                            <span class="project-image-hint" aria-hidden="true">View larger +</span>
+                        </button>
+                        <figcaption><strong>Dining furniture &amp; cabinetry</strong><span>Timber furniture in a finished interior</span></figcaption>
+                    </figure>
+                </div>
+                <p class="portfolio-note">Also available for island kitchens, fitted wardrobes and thatching projects. Contact Webster to discuss your plans.</p>
+            </div>
+        </section>
+
+        <dialog class="lightbox" id="work-lightbox" aria-label="Enlarged project photo">
+            <button class="lightbox-close" type="button" aria-label="Close enlarged image" autofocus>&times;</button>
+            <figure>
+                <img id="lightbox-image" alt="">
+                <figcaption id="lightbox-caption"></figcaption>
+            </figure>
+        </dialog>
+
+        <section class="work" id="experience">
+            <div class="wrap work-layout">
+                <div class="section-heading">
+                    <div class="eyebrow">Experience &amp; working style</div>
+                    <h2>A steady pair of hands on site.</h2>
+                    <p class="work-note">Available for employment, subcontracting, commercial contracts and residential projects in Harare and surrounding regions.</p>
+                </div>
+                <div class="work-list">
+                    <article class="work-item">
+                        <div class="work-mark">01</div>
+                        <div><h3>Built work from plans to finish</h3><p>Experienced in interpreting blueprints and sketches, setting out work and preparing materials for accurate installation.</p></div>
+                    </article>
+                    <article class="work-item">
+                        <div class="work-mark">02</div>
+                        <div><h3>Led crews and kept work moving</h3><p>Coordinated teams of up to 20 workers, balancing task sequencing, resources, workmanship and site requirements.</p></div>
+                    </article>
+                    <article class="work-item">
+                        <div class="work-mark">03</div>
+                        <div><h3>Focused on a professional handover</h3><p>Committed to practical quality checks, safe working habits, clear communication and resolving snag items before sign-off.</p></div>
+                    </article>
+                    <article class="work-item">
+                        <div class="work-mark">04</div>
+                        <div><h3>Ready to discuss your requirements</h3><p>Share the role, project location and expected start date. I’ll respond directly to discuss availability and next steps.</p></div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact" id="contact">
+            <div class="wrap contact-grid">
+                <div>
+                    <div class="section-heading">
+                        <div class="eyebrow">Let’s get to work</div>
+                        <h2>Have a role or project in mind?</h2>
+                        <p>Send a few details and choose how you’d like to reach me. I’m available for hiring enquiries, contracting and project discussions.</p>
+                    </div>
+                    <div class="contact-methods">
+                        <a class="contact-method" href="tel:+263774394883">
+                            <span class="method-icon" aria-hidden="true">T</span>
+                            <span><small>Call me</small><strong>+263 774 394 883</strong></span>
+                        </a>
+                        <a class="contact-method" href="https://wa.me/263774394883" target="_blank" rel="noopener noreferrer">
+                            <span class="method-icon" aria-hidden="true">W</span>
+                            <span><small>WhatsApp</small><strong>Start a conversation</strong></span>
+                        </a>
+                        <a class="contact-method" href="mailto:kanzambawebster91@gmail.com">
+                            <span class="method-icon" aria-hidden="true">@</span>
+                            <span><small>Email</small><strong>kanzambawebster91@gmail.com</strong></span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="form-panel">
+                    <h3>Send a work enquiry</h3>
+                    <p class="form-intro">Complete the form, then choose WhatsApp or email to send it directly.</p>
+                    <form id="contact-form">
+                        <div class="form-grid">
+                            <div class="field">
+                                <label for="name">Your name *</label>
+                                <input id="name" name="name" autocomplete="name" required maxlength="100" placeholder="Name">
+                            </div>
+                            <div class="field">
+                                <label for="company">Company / organisation</label>
+                                <input id="company" name="company" autocomplete="organization" maxlength="120" placeholder="Optional">
+                            </div>
+                            <div class="field">
+                                <label for="email">Your email *</label>
+                                <input id="email" name="email" type="email" autocomplete="email" required maxlength="160" placeholder="you@example.com">
+                            </div>
+                            <div class="field">
+                                <label for="phone">Your phone</label>
+                                <input id="phone" name="phone" type="tel" autocomplete="tel" maxlength="40" placeholder="Include country code">
+                            </div>
+                            <div class="field field-full">
+                                <label for="enquiry">I’m contacting you about *</label>
+                                <select id="enquiry" name="enquiry" required>
+                                    <option value="" disabled selected>Select an enquiry type</option>
+                                    <option>Employment opportunity</option>
+                                    <option>Commercial contract</option>
+                                    <option>Residential project</option>
+                                    <option>Subcontracting opportunity</option>
+                                    <option>Other work enquiry</option>
+                                </select>
+                            </div>
+                            <div class="field field-full">
+                                <label for="message">Role or project details *</label>
+                                <textarea id="message" name="message" required maxlength="2000" placeholder="Tell me about the work, location and expected start date."></textarea>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button class="button" type="submit" data-channel="whatsapp">Send via WhatsApp</button>
+                            <button class="button send-email" type="submit" data-channel="email">Send via email</button>
+                        </div>
+                
+                        <p class="status" id="form-status" role="status" aria-live="polite"></p>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="wrap footer-inner">
+            <span>© <span id="year">2026</span> Webster Kanzamba · Class 1 Carpenter &amp; Joiner</span>
+            <a href="#top">Back to top ↑</a>
+        </div>
+    </footer>
+
+    <script>
+        const contactForm = document.querySelector('#contact-form');
+        const formStatus = document.querySelector('#form-status');
+        const workLightbox = document.querySelector('#work-lightbox');
+        const lightboxImage = document.querySelector('#lightbox-image');
+        const lightboxCaption = document.querySelector('#lightbox-caption');
+        const portfolioCards = [...document.querySelectorAll('.project-card')];
+        const portfolioCount = document.querySelector('#portfolio-count');
+        let lightboxOpener = null;
+
+        document.querySelector('.portfolio-filters').addEventListener('click', (event) => {
+            const filterButton = event.target.closest('.portfolio-filter');
+            if (!filterButton) return;
+
+            const selectedFilter = filterButton.dataset.filter;
+            let visibleCount = 0;
+
+            document.querySelectorAll('.portfolio-filter').forEach((button) => {
+                button.setAttribute('aria-pressed', String(button === filterButton));
+            });
+            portfolioCards.forEach((card) => {
+                card.hidden = selectedFilter !== 'all' && card.dataset.category !== selectedFilter;
+                if (!card.hidden) visibleCount += 1;
+            });
+
+            portfolioCount.textContent = selectedFilter === 'all'
+                ? `Showing all ${visibleCount} examples`
+                : `Showing ${visibleCount} ${filterButton.textContent.toLowerCase()} examples`;
+        });
+
+        document.querySelector('.portfolio-grid').addEventListener('click', (event) => {
+            const imageButton = event.target.closest('.project-image-button');
+            if (!imageButton) return;
+
+            lightboxOpener = imageButton;
+            const image = imageButton.querySelector('img');
+            lightboxImage.src = image.src;
+            lightboxImage.alt = image.alt;
+            lightboxCaption.textContent = imageButton.closest('.project-card').querySelector('figcaption').innerText;
+            workLightbox.showModal();
+        });
+
+        document.querySelector('.lightbox-close').addEventListener('click', () => workLightbox.close());
+        workLightbox.addEventListener('close', () => lightboxOpener?.focus());
+        workLightbox.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') workLightbox.close();
+        });
+        workLightbox.addEventListener('click', (event) => {
+            if (event.target === workLightbox) workLightbox.close();
+        });
+
+        contactForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            if (!contactForm.reportValidity()) return;
+
+            const formData = new FormData(contactForm);
+            const message = [
+                'Work enquiry for Webster Kanzamba',
+                '',
+                `Name: ${formData.get('name')}`,
+                `Company: ${formData.get('company') || 'Not provided'}`,
+                `Email: ${formData.get('email')}`,
+                `Phone: ${formData.get('phone') || 'Not provided'}`,
+                `Enquiry: ${formData.get('enquiry')}`,
+                '',
+                'Details:',
+                formData.get('message')
+            ].join('\n');
+            const channel = event.submitter?.dataset.channel;
+
+            if (channel === 'whatsapp') {
+                window.open(`https://wa.me/263774394883?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
+                formStatus.textContent = 'WhatsApp opened with your enquiry. Review it there and tap Send.';
+                return;
+            }
+
+            const subject = encodeURIComponent(`Work enquiry: ${formData.get('enquiry')}`);
+            window.location.href = `mailto:kanzambawebster91@gmail.com?subject=${subject}&body=${encodeURIComponent(message)}`;
+            formStatus.textContent = 'Your email app is opening with the enquiry ready to send.';
+        });
+
+        document.querySelector('#year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
