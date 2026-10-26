@@ -269,8 +269,9 @@
                         <button class="portfolio-filter" type="button" data-filter="kitchens" aria-pressed="false">Kitchens</button>
                         <button class="portfolio-filter" type="button" data-filter="joinery" aria-pressed="false">Joinery &amp; furniture</button>
                         <button class="portfolio-filter" type="button" data-filter="interiors" aria-pressed="false">Interior work</button>
+                        <button class="portfolio-filter" type="button" data-filter="other" aria-pressed="false">Additional work</button>
                     </div>
-                    <p class="portfolio-count" id="portfolio-count" role="status" aria-live="polite">Showing all 10 examples</p>
+                    <p class="portfolio-count" id="portfolio-count" role="status" aria-live="polite">Showing all 78 examples</p>
                 </div>
                 <div class="portfolio-grid">
                     <figure class="project-card" data-category="kitchens">
@@ -342,6 +343,62 @@
                             <span class="project-image-hint" aria-hidden="true">View larger +</span>
                         </button>
                         <figcaption><strong>Dining furniture &amp; cabinetry</strong><span>Timber furniture in a finished interior</span></figcaption>
+                    </figure>
+                    <figure class="project-card" data-category="interiors">
+                        <button class="project-image-button" type="button" aria-label="View larger: timber doors and interior finish" aria-haspopup="dialog">
+                            <img src="IMG-20261016-WA0000%20(1).jpg" alt="Crafted timber doors and door frames fitted in a finished interior" loading="lazy">
+                            <span class="project-image-hint" aria-hidden="true">View larger +</span>
+                        </button>
+                        <figcaption><strong>Timber doors &amp; frames</strong><span>Door fitting and interior finishing</span></figcaption>
+                    </figure>
+                    <figure class="project-card" data-category="interiors">
+                        <button class="project-image-button" type="button" aria-label="View larger: thatched property and outdoor setting" aria-haspopup="dialog">
+                            <img src="IMG-20261016-WA0016%20(1).jpg" alt="Thatched property with timber outdoor details beside a swimming pool" loading="lazy">
+                            <span class="project-image-hint" aria-hidden="true">View larger +</span>
+                        </button>
+                        <figcaption><strong>Thatched property &amp; outdoor work</strong><span>Traditional roofing and exterior detail</span></figcaption>
+                    </figure>
+                    <figure class="project-card" data-category="kitchens">
+                        <button class="project-image-button" type="button" aria-label="View larger: built-in timber cabinetry" aria-haspopup="dialog">
+                            <img src="IMG-20261016-WA0018%20(1).jpg" alt="Carpenter fitting handmade timber cabinet doors into a brick counter" loading="lazy">
+                            <span class="project-image-hint" aria-hidden="true">View larger +</span>
+                        </button>
+                        <figcaption><strong>Built-in timber cabinetry</strong><span>Handmade doors fitted to a masonry counter</span></figcaption>
+                    </figure>
+                    <figure class="project-card" data-category="joinery">
+                        <button class="project-image-button" type="button" aria-label="View larger: timber stock prepared for carpentry" aria-haspopup="dialog">
+                            <img src="IMG-20261016-WA0026%20(1).jpg" alt="Prepared timber boards stacked at a carpentry work site" loading="lazy">
+                            <span class="project-image-hint" aria-hidden="true">View larger +</span>
+                        </button>
+                        <figcaption><strong>Timber preparation</strong><span>Materials selected and prepared for site work</span></figcaption>
+                    </figure>
+                    <figure class="project-card" data-category="joinery">
+                        <button class="project-image-button" type="button" aria-label="View larger: handmade outdoor table and benches" aria-haspopup="dialog">
+                            <img src="IMG-20261016-WA0028%20(1).jpg" alt="Handmade timber outdoor table and matching benches" loading="lazy">
+                            <span class="project-image-hint" aria-hidden="true">View larger +</span>
+                        </button>
+                        <figcaption><strong>Outdoor table &amp; benches</strong><span>Solid timber garden furniture</span></figcaption>
+                    </figure>
+                    <figure class="project-card" data-category="interiors">
+                        <button class="project-image-button" type="button" aria-label="View larger: commercial building fit-out" aria-haspopup="dialog">
+                            <img src="IMG-20261016-WA0034.jpg" alt="Commercial building exterior during a fit-out, with brickwork and scaffold" loading="lazy">
+                            <span class="project-image-hint" aria-hidden="true">View larger +</span>
+                        </button>
+                        <figcaption><strong>Commercial fit-out</strong><span>Exterior finishing on a hospitality project</span></figcaption>
+                    </figure>
+                    <figure class="project-card" data-category="kitchens">
+                        <button class="project-image-button" type="button" aria-label="View larger: handmade corner kitchen cabinetry" aria-haspopup="dialog">
+                            <img src="IMG-20261016-WA0036.jpg" alt="Handmade timber corner cabinets fitted into a brick kitchen counter" loading="lazy">
+                            <span class="project-image-hint" aria-hidden="true">View larger +</span>
+                        </button>
+                        <figcaption><strong>Corner kitchen cabinetry</strong><span>Custom timber cabinet doors and drawers</span></figcaption>
+                    </figure>
+                    <figure class="project-card" data-category="interiors">
+                        <button class="project-image-button" type="button" aria-label="View larger: patterned timber floor installation" aria-haspopup="dialog">
+                            <img src="IMG-20261016-WA0038.jpg" alt="Geometric timber floor pattern laid out at a renovation site" loading="lazy">
+                            <span class="project-image-hint" aria-hidden="true">View larger +</span>
+                        </button>
+                        <figcaption><strong>Patterned timber flooring</strong><span>Careful layout and interior floor finishing</span></figcaption>
                     </figure>
                 </div>
                 <p class="portfolio-note">Also available for island kitchens, fitted wardrobes and thatching projects. Contact Webster to discuss your plans.</p>
@@ -470,6 +527,84 @@
         const workLightbox = document.querySelector('#work-lightbox');
         const lightboxImage = document.querySelector('#lightbox-image');
         const lightboxCaption = document.querySelector('#lightbox-caption');
+        const portfolioGrid = document.querySelector('.portfolio-grid');
+        const additionalProjectPhotos = [
+            'IMG_20240509_145058_comps (1).jpg',
+            'IMG_20240509_145129_comps (1).jpg',
+            'IMG_20240601_123313_comps (1).jpg',
+            'IMG_20240625_110256_comps (1).jpg',
+            'IMG_20240808_172554_comps (1).jpg',
+            'IMG_20240816_155524_comps (1).jpg',
+            'IMG_20240921_154822_comps (1).jpg',
+            'IMG_20250217_202014 (1).jpg',
+            'IMG_20250221_105837 (1).jpg',
+            'IMG_20250221_105857 (1).jpg',
+            'IMG_20251023_155038_420 (1).jpg',
+            'IMG_20260221_120635_931 (1).jpg',
+            'IMG_20260329_180354_552 (1).jpg',
+            'IMG-20251108-WA0000 (1).jpg',
+            'IMG-20251108-WA0001 (1).jpg',
+            'IMG-20260121-WA0018 (1).jpg',
+            'IMG-20260123-WA0029 (1).jpg',
+            'IMG-20260123-WA0049 (1).jpg',
+            'IMG-20260123-WA0050 (1).jpg',
+            'IMG-20260123-WA0052 (1).jpg',
+            'IMG-20260123-WA0054 (1).jpg',
+            'IMG-20260420-WA0003 (1).jpeg',
+            'IMG-20260508-WA0008 (1).jpg',
+            'IMG-20260528-WA0001 (1).jpg',
+            'IMG-20260528-WA0003 (1).jpg',
+            'IMG-20260528-WA0004 (1).jpg',
+            'IMG-20260528-WA0007 (1).jpg',
+            'IMG-20260528-WA0009 (1).jpg',
+            'IMG-20260528-WA0010 (1).jpg',
+            'IMG-20260528-WA0011 (1).jpg',
+            'IMG-20260528-WA0012 (1).jpg',
+            'IMG-20260528-WA0013 (1).jpg',
+            'IMG-20260528-WA0015 (1).jpg',
+            'IMG-20260528-WA0016 (1).jpg',
+            'IMG-20260528-WA0018 (1).jpg',
+            'IMG-20260528-WA0019 (1).jpg',
+            'IMG-20260528-WA0020 (1).jpg',
+            'IMG-20260528-WA0021 (1).jpg',
+            'IMG-20260528-WA0053 (1).jpg',
+            'IMG-20260528-WA0055 (1).jpg',
+            'IMG-20260528-WA0074 (1).jpg',
+            'IMG-20260605-WA0002 (1).jpg',
+            'PXL_20260531_090228649.MP.jpg',
+            'PXL_20260531_090312306.MP.jpg',
+            'PXL_20260610_104151671.jpg',
+            'PXL_20260612_151137501.MP.jpg',
+            'PXL_20260612_151539209.MP.jpg',
+            'PXL_20260618_110955074.jpg',
+            'PXL_20260619_075825090.MP.jpg',
+            'PXL_20260620_070422256.MP (1).jpg',
+            'PXL_20260808_144851205 (1).jpg',
+            'PXL_20260812_083908988 (1).jpg',
+            'PXL_20260813_084151090.MP (1).jpg',
+            'PXL_20260822_152710603.MP.jpg',
+            'PXL_20260823_111426309 (1).jpg',
+            'PXL_20260823_111439815 (1).jpg',
+            'PXL_20260831_124022487 (1).jpg',
+            'PXL_20261001_120542248.MP.jpg',
+            'PXL_20261001_132918645.MP (1).jpg',
+            'WA_1780656825365.jpeg'
+        ];
+
+        additionalProjectPhotos.forEach((filename, index) => {
+            const card = document.createElement('figure');
+            card.className = 'project-card';
+            card.dataset.category = 'other';
+            card.innerHTML = `
+                <button class="project-image-button" type="button" aria-label="View larger: additional carpentry project" aria-haspopup="dialog">
+                    <img src="./${encodeURIComponent(filename)}" alt="Additional carpentry, joinery or building project by Webster Kanzamba" loading="lazy">
+                    <span class="project-image-hint" aria-hidden="true">View larger +</span>
+                </button>
+                <figcaption><strong>Additional project ${String(index + 1).padStart(2, '0')}</strong><span>Carpentry, joinery &amp; site work</span></figcaption>
+            `;
+            portfolioGrid.append(card);
+        });
+
         const portfolioCards = [...document.querySelectorAll('.project-card')];
         const portfolioCount = document.querySelector('#portfolio-count');
         let lightboxOpener = null;
@@ -494,7 +629,7 @@
                 : `Showing ${visibleCount} ${filterButton.textContent.toLowerCase()} examples`;
         });
 
-        document.querySelector('.portfolio-grid').addEventListener('click', (event) => {
+        portfolioGrid.addEventListener('click', (event) => {
             const imageButton = event.target.closest('.project-image-button');
             if (!imageButton) return;
 
